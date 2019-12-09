@@ -41,7 +41,7 @@ function createEstacion(req, res) {
 }
 
 function getEstaciones(req, res) {
-    Estacion.find().populate('Ejercicio Luz').exec((err, estaciones) => {
+    Estacion.find().populate('ejercicios lucesEstacion').exec((err, estaciones) => {
         if (err) return res.status(500).send(err);
         if (!estaciones) return res.status(404).send({ 'Error': 'No hay estaciones creadas' });
 
@@ -50,7 +50,7 @@ function getEstaciones(req, res) {
 }
 
 function getEstacionById(req, res) {
-    Estacion.findById(req.params.idEstacion).populate('Ejercicio Luz').exec((err, estacion) => {
+    Estacion.findById(req.params.idEstacion).populate('ejercicios lucesEstacion').exec((err, estacion) => {
         if (err) return res.status(500).send(err);
         if (!estacion) return res.status(404).send({ 'Error': 'No existe estacion con esa id' });
 
@@ -59,7 +59,7 @@ function getEstacionById(req, res) {
 }
 
 function editEstacion(req, res) {
-    Estacion.findById(req.params.idEstacion).populate('Ejercicio Luz').exec((err, estacion) => {
+    Estacion.findById(req.params.idEstacion).populate('ejercicios lucesEstacion').exec((err, estacion) => {
         if (err) return res.status(500).send(err);
         if (!estacion) return res.status(404).send({ 'Error': 'No existe estacion con esa id' });
 

@@ -32,7 +32,7 @@ function registrarAdmin(req, res) {
 
     //Valida que exista solo un admin con el mismo rut
     User.findOne({
-        telefono: rutformat,
+        rut: rutformat,
         rol: 'ADMIN'
     }).exec((err, userFound) => {
         if (err) return res.status(500).send(err.message);

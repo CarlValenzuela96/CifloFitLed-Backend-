@@ -66,7 +66,7 @@ function asignLuzEjercicio(req, res) {
 }
 
 function getEjercicios(req, res) {
-    Ejercicio.find().populate('Luz').exec((err, ejercicios) => {
+    Ejercicio.find().populate('lucesEjercicio').exec((err, ejercicios) => {
         if (err) return res.status(500).send(err);
         if (!ejercicios) return res.status(404).send({ 'Error': 'No existen ejercicios registrados' });
 
@@ -75,7 +75,7 @@ function getEjercicios(req, res) {
 }
 
 function getEjercicioById(req, res) {
-    Ejercicio.findById(req.params.idEjercicio).populate('Luz').exec((err, ejercicios) => {
+    Ejercicio.findById(req.params.idEjercicio).populate('lucesEjercicio').exec((err, ejercicios) => {
         if (err) return res.status(500).send(err);
         if (!ejercicios) return res.status(404).send({ 'Error': 'No existen ejercicios registrados' });
 
