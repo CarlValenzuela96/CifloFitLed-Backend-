@@ -44,7 +44,7 @@ function editSesion(req, res) {
 }
 
 function agregarParticipante(req, res) {
-    Sesion.findById(req.params.sesion).exec((err, sesion) => {
+    Sesion.findById(req.params.idSesion).exec((err, sesion) => {
         if (err) return res.status(500).send(err);
         if (!sesion) return res.status(404).send({ 'Error': 'No existe sesión con esa id' });
 

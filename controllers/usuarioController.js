@@ -57,7 +57,7 @@ function editMe(req, res) {
 
         usuario.peso = req.body.peso;
         usuario.altura = req.body.altura;
-        if (req.body.peso != null && req.body.altura != null) {
+        if (usuario.peso != null && usuario.altura != null) {
             usuario.imc = req.body.peso / (req.body.altura ^ 2);//altura en metros (ver si viene en cm convertir)
         }
         usuario.lesiones = req.body.lesiones;

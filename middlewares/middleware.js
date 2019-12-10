@@ -31,9 +31,9 @@ function isAuth(req, res, next) {
  * Metodo que permite verificar si el usuario tiene el rol requerido
  * @param {*} rol 
  */
-function hasRole(rol) {
+function hasRole(roles) {
     return function (req, res, next) {
-        if (req.user.rol !== rol) return res.status(401).send({ 'Error': 'Usuario no autorizado' });
+        if (!roles.contains(user.rol)) return res.status(401).send({ 'Error': 'Usuario no autorizado' });
         next();
     }
 }

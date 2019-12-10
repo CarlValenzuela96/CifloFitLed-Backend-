@@ -29,7 +29,7 @@ function createEjercicio(req, res) {
 
 function asignLuzEjercicio(req, res) {
 
-    Estacion.findById(req.params.Estacion).exec((err, estacion) => {
+    Estacion.findById(req.params.idEstacion).exec((err, estacion) => {
         if (err) return res.status(500).send(err);
         if (!estacion) return res.status(404).send({ 'Error': 'Estacion no existe' });
 

@@ -7,11 +7,11 @@ const config = require('./config');
 
 const authRoutes = require('./routes/authRoutes');
 const protectedRoutes = require('./routes/protectedRoutes');
-// const publicRoutes = require('./routes/publicRoutes');
+const publicRoutes = require('./routes/publicRoutes');
 
 app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
-// app.use('/public', publicRoutes);
+app.use('/public', publicRoutes);
 
 
 mongoose.connect(config.app.db, { useNewUrlParser: true }, (err, res) => {
